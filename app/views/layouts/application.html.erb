@@ -9,7 +9,33 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+<head>
+<style>
+#characters {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+}
+#characters td, #characters th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#characters tr:nth-child(even){background-color: #F2F2F2;}
+#characters tr:hover {background-color: #ddd;}
+#characters th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+</style>
+</head>
   <body>
     <%= yield %>
   </body>

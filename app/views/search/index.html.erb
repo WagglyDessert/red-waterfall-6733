@@ -1,9 +1,27 @@
-<h1>Search Results for <%= params[:nation].gsub('+', ' ').split.map(&:capitalize).join(' ') %></h1>
+
+<body>
+<h1><u>Search Results for <%= params[:nation].gsub('+', ' ').split.map(&:capitalize).join(' ') %></u></h1>
 <p> Total number of members: <%= @facade.count%> </p><br>
-<% @facade.take(25).each do |member|%>
-  <img src= <%= "#{member.photo_url}" %> height="200" > <br>
-  <p> Name: <%= member.name%> </p>
-  <p> Affiliation: <%= member.affiliation%> </p>
-  <p> Allies: <%= member.allies.join(', ') %> </p>
-  <p> Enemies: <%= member.enemies.join(', ') %> </p><br><br><br>
-<% end %>
+<table id="characters">
+  <tr>
+    <th>Name</th>
+    <th>Affiliation</th>
+    <th>Allies</th>
+    <th>Enemies</th>
+  </tr>
+    <% @facade.take(25).each do |member|%>
+    <tr>
+      <td>
+      <img src= <%= "#{member.photo_url}" %> height="200" > <br>
+      <div class= "center">
+      <%= member.name %>
+      </div>
+      </td>
+      <td> <%= member.affiliation %></td>
+      <td> <%= member.allies.join(', ') %> </td>
+      <td> <%= member.enemies.join(', ') %></td>
+    </tr>
+    <% end %>
+</table>
+</body>
+</html>
