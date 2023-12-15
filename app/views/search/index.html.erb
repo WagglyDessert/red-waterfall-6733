@@ -1,0 +1,9 @@
+<h1>Search Results for <%= params[:nation].gsub('+', ' ').split.map(&:capitalize).join(' ') %></h1>
+<p> Total number of members: <%= @facade.count%> </p><br>
+<% @facade.each do |member|%>
+  <img src= <%= "#{member.photo_url}" %> height="200" > <br>
+  <p> Name: <%= member.name%> </p>
+  <p> Affiliation: <%= member.affiliation%> </p>
+  <p> Allies: <%= member.allies.join(', ') %> </p>
+  <p> Enemies: <%= member.enemies.join(', ') %> </p><br><br><br>
+<% end %>
